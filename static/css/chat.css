@@ -1,0 +1,49 @@
+/* Estilos para el contenedor principal */
+#chat-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+/* Estilos para los mensajes de chat */
+.chat-message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.chat-message p {
+  margin: 0;
+}
+
+.sent-message {
+  background-color: #dcf8c6;
+  align-self: flex-end;
+}
+
+.received-message {
+  background-color: #ffffff;
+}
+
+/* Estilos para el formulario de envío de mensajes */
+#chat-form {
+  display: flex;
+  margin-top: 20px;
+}
+
+#chat-form input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#chat-form button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}

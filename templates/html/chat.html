@@ -1,27 +1,27 @@
+{% extends 'base.html' %}
 {% load static %}
-<!-- chat.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Chat</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{% static 'js/chat.js' %}"></script>
-</head>
-<body>
-    <div id="chat-messages">
-        {% for message in chat_messages %}
-            <div class="message">
-                <span class="sender">{{ message.sender }}</span>
-                <span class="content">{{ message.content }}</span>
-                <span class="timestamp">{{ message.timestamp }}</span>
-            </div>
-        {% endfor %}
-    </div>
 
-    <form id="chat-form">
-        {% csrf_token %}
-        <input type="text" id="message-input">
-        <button type="submit">Enviar</button>
-    </form>
-</body>
-</html>
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/chat.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="chat-container">
+        <h1>Chat con {{ receiver }}</h1>
+
+        <div id="chat-messages">
+            {% for message in messages %}
+                <div class="chat-message {% if message.sender == request.user %}sent-message{% else %}received-message{% endif %}">
+                    <p>{{ message.sender }}: {{ message.message }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <form id="chat-form" action="{% url 'send_message' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="receiver_id" value="{{ receiver_id }}">
+            <input type="text" name="message" placeholder="Escribe tu mensaje...">
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+{% endblock %}

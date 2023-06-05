@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block content %}
+    <h1>Seleccionar destinatario</h1>
+    <form method="post">
+        {% csrf_token %}
+        <select name="receiver">
+            {% for user in users %}
+                <option value="{{ user.id }}">{{ user.username }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Iniciar chat</button>
+    </form>
+{% endblock %}

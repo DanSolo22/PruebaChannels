@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="color-scheme" content="dark light">
+    <title>Chat</title>
 
-    {% block stylesheets %}{% endblock stylesheets %}
-    {% block scripts %}{% endblock scripts %}
-
+    {% block stylesheets %}
+    {% endblock %}
 </head>
 <body>
-<div class="container">
+    <header>
+        <h1>Chat App</h1>
+        <!-- Coloca aquí la navegación, barra de búsqueda, etc. -->
+    </header>
+
     <main>
-        {% block content %}{% endblock content %}
+        {% block content %}
+        {% endblock %}
     </main>
-</div>
+
+    <footer>
+        <!-- Coloca aquí el contenido del pie de página -->
+    </footer>
 </body>
 </html>
