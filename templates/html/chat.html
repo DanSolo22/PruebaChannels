@@ -1,0 +1,27 @@
+{% load static %}
+<!-- chat.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/chat.js' %}"></script>
+</head>
+<body>
+    <div id="chat-messages">
+        {% for message in chat_messages %}
+            <div class="message">
+                <span class="sender">{{ message.sender }}</span>
+                <span class="content">{{ message.content }}</span>
+                <span class="timestamp">{{ message.timestamp }}</span>
+            </div>
+        {% endfor %}
+    </div>
+
+    <form id="chat-form">
+        {% csrf_token %}
+        <input type="text" id="message-input">
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
